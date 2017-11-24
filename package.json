@@ -1,0 +1,24 @@
+{
+  "name": "fast-start",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "fast-start": "./bin/index.js",
+    "fs": "./bin/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "co": "^4.6.0",
+    "inquirer": "^4.0.0",
+    "meow": "^3.7.0"
+  },
+  "devDependencies": {
+    "eslint-config-prettier": "^2.8.0"
+  }
+}
