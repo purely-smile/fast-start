@@ -38,7 +38,7 @@ module.exports = function() {
     }
     const data = dataConfig.getConfig();
     data[projName] = {
-      path: projPath,
+      path: absolutePath,
       cli
     };
     dataConfig.setConfig(data);

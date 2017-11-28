@@ -8,7 +8,7 @@ module.exports = function npmStart() {
     const { path, cli } = data[name];
     console.log(name);
     console.log("开始运行项目", path, cli);
-    const start = spawn(`cd ${path} && ${cli}`, {
+    const start = spawn(`cd ${path} && si && ${cli}`, {
       shell: true
     });
     start.stdout.on("data", function(data) {
