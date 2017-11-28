@@ -9,7 +9,7 @@ module.exports = {
       this.setConfig({});
       return {};
     }else{
-      JSON.parse(fs.readFileSync(configPath));
+      return JSON.parse(fs.readFileSync(configPath));
     }
   },
   setConfig(data) {

@@ -12,9 +12,14 @@ const prompt = inquirer.createPromptModule();
  */
 module.exports = function() {
   co(function*() {
+    const { projName } = yield prompt({
+      name: "projName",
+      message: `请输入项目名称`,
+      type: "input"
+    });
     const { projPath } = yield prompt({
       name: "projPath",
-      message: `请输入项目名称`,
+      message: `请输入项目路径`,
       type: "input"
     });
     const { cli } = yield prompt({
@@ -22,7 +27,7 @@ module.exports = function() {
       message: `请输入脚本命令`,
       type: "input"
     });
-    if (!projPath || !cli) {
+    if (!projPath || !cli || !projName) {
       return console.log("请输入项目路径和脚本命令");
     }
     const cwd = process.cwd();
@@ -31,7 +36,6 @@ module.exports = function() {
     if (!fs.existsSync(pkgPath)) {
       return console.log(`该目录中:${pkgPath}未找到package.json文件`);
     }
-    const projName = absolutePath.split("/").pop();
     const data = dataConfig.getConfig();
     data[projName] = {
       path: projPath,

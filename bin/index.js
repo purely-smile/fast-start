@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 const meow = require("meow");
 const addConfig = require("./add-config");
+const npmStart = require('./npm-start');
 const cli = meow(
   `
   参数
@@ -21,4 +22,6 @@ const { add, list, d } = cli.flags;
 
 if(add === true){
   addConfig()
+}else{
+  npmStart();
 }
