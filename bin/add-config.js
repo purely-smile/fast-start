@@ -27,7 +27,12 @@ module.exports = function() {
       message: `请输入脚本命令`,
       type: "input"
     });
-    if (!projPath || !cli || !projName) {
+    const { port } = yield prompt({
+      name: "port",
+      message: `请输入端口号`,
+      type: "input"
+    });
+    if (!projPath || !cli || !projName || !port) {
       return console.log("请输入项目路径和脚本命令");
     }
     const cwd = process.cwd();
@@ -39,7 +44,8 @@ module.exports = function() {
     const data = dataConfig.getConfig();
     data[projName] = {
       path: absolutePath,
-      cli
+      cli,
+      port
     };
     dataConfig.setConfig(data);
   });
